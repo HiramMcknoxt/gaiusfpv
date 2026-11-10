@@ -8,6 +8,7 @@
 <meta property="og:title" content="GaiusFPV — One Song. One Take.">
 <meta property="og:description" content="Lyrical freestyle FPV from Cabot, Arkansas. Request a song and I'll fly it — once.">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <style>
 :root{--bg:#0a0e14;--panel:#121826;--panel2:#171f31;--text:#eef2f7;--muted:#9aa8bb;--accent:#ffcf3f;--accent2:#39d0ff;--line:#232d42;--radius:16px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
@@ -15,8 +16,10 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Aria
 a{color:var(--accent2)}
 header{position:sticky;top:0;z-index:20;background:rgba(10,14,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{max-width:1120px;margin:auto;display:flex;gap:18px;align-items:center;padding:12px 18px;flex-wrap:wrap}
-.logo{font-weight:900;letter-spacing:.06em;font-size:1.25rem;color:var(--text);text-decoration:none}
+.logo{font-weight:900;letter-spacing:.06em;font-size:1.25rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
 .logo span{color:var(--accent)}
+.logo img{width:40px;height:40px;border-radius:50%;display:block}
+.hero-logo{width:148px;height:148px;border-radius:50%;display:block;margin:0 0 20px;box-shadow:0 10px 34px rgba(0,0,0,.5)}
 .nav a.link{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem}
 .nav a.link:hover{color:var(--text)}
 .nav .spacer{flex:1}
@@ -71,7 +74,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);m
 <body>
 <header>
   <div class="nav">
-    <a class="logo" href="#top">GAIUS<span>FPV</span></a>
+    <a class="logo" href="#top"><img src="assets/logo.svg" alt="GaiusFPV logo">GAIUS<span>FPV</span></a>
     <a class="link" href="#watch">Watch</a>
     <a class="link" href="#latest">Latest</a>
     <a class="link" href="#popular">Most Watched</a>
@@ -84,6 +87,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);m
 
 <main class="wrap" id="top">
   <div class="hero">
+    <img class="hero-logo" src="assets/logo.svg" alt="GaiusFPV logo — marble bust wearing DJI FPV goggles and headphones, inside a bronze GAIUS FPV coin">
     <div class="kicker">Lyrical Freestyle FPV · Cabot, Arkansas</div>
     <h1>One song. <em>One take.</em><br>Takeoff to landing.</h1>
     <p class="lede">I'm GaiusFPV. I pick a song, choreograph the flight in my head, and fly the whole thing in a single take — flips, dives and rolls landing on the beats and the lyric cues. No re-timing in the edit to fake the sync. The skill is in the sticks.</p>
