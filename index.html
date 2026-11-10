@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GaiusFPV — Lyrical Freestyle FPV | One Song. One Take.</title>
+<meta name="description" content="GaiusFPV flies full songs in one take, takeoff to landing, over Cabot, Arkansas. Request a song, watch the latest flights, and check what's already been flown.">
+<meta property="og:title" content="GaiusFPV — One Song. One Take.">
+<meta property="og:description" content="Lyrical freestyle FPV from Cabot, Arkansas. Request a song and I'll fly it — once.">
+<meta property="og:type" content="website">
+<style>
+:root{--bg:#0a0e14;--panel:#121826;--panel2:#171f31;--text:#eef2f7;--muted:#9aa8bb;--accent:#ffcf3f;--accent2:#39d0ff;--line:#232d42;--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+a{color:var(--accent2)}
+header{position:sticky;top:0;z-index:20;background:rgba(10,14,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1120px;margin:auto;display:flex;gap:18px;align-items:center;padding:12px 18px;flex-wrap:wrap}
+.logo{font-weight:900;letter-spacing:.06em;font-size:1.25rem;color:var(--text);text-decoration:none}
+.logo span{color:var(--accent)}
+.nav a.link{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem}
+.nav a.link:hover{color:var(--text)}
+.nav .spacer{flex:1}
+.btn{display:inline-block;background:var(--accent);color:#111;padding:11px 18px;border-radius:999px;font-weight:800;text-decoration:none;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn.blue{background:var(--accent2)}
+.wrap{max-width:1120px;margin:auto;padding:0 18px}
+.hero{padding:52px 0 28px;text-align:left}
+.kicker{color:var(--accent);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.82rem}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.02;margin:.35em 0 .3em}
+h1 em{font-style:normal;color:var(--accent)}
+.hero p.lede{font-size:1.18rem;color:var(--muted);max-width:720px;margin:0 0 22px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 26px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin:20px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;min-width:150px}
+.stat b{display:block;font-size:1.35rem}
+.stat span{color:var(--muted);font-size:.9rem}
+section{padding:34px 0}
+h2{font-size:1.9rem;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 20px;max-width:760px}
+.player{aspect-ratio:16/9;background:#000;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.player iframe{width:100%;height:100%;border:0;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--text);display:block}
+.card:hover{border-color:var(--accent2)}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#000}
+.card .body{padding:12px 14px 14px}
+.card h3{font-size:.98rem;line-height:1.35;margin:0 0 6px}
+.meta{color:var(--muted);font-size:.85rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.panel h3{margin-top:0}
+.steps{counter-reset:s;display:grid;gap:12px}
+.step{background:var(--panel2);border-radius:12px;padding:14px 16px}
+.step b{color:var(--accent)}
+input[type=search]{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:#0d1220;color:var(--text);font-size:1rem}
+.results{max-height:320px;overflow:auto;margin-top:12px;display:grid;gap:8px}
+.result{background:var(--panel2);border-radius:10px;padding:10px 12px;font-size:.95rem}
+.formframe{width:100%;height:860px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.fleet{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.fleet div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.fleet b{display:block}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.socials a{background:var(--panel);border:1px solid var(--line);color:var(--text);text-decoration:none;padding:10px 14px;border-radius:999px;font-weight:700}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);margin-top:20px}
+.note{font-size:.88rem;color:var(--muted)}
+.tag{display:inline-block;background:#1d2942;color:var(--accent2);border-radius:999px;padding:2px 9px;font-size:.78rem;font-weight:700;margin-bottom:8px}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="#top">GAIUS<span>FPV</span></a>
+    <a class="link" href="#watch">Watch</a>
+    <a class="link" href="#latest">Latest</a>
+    <a class="link" href="#popular">Most Watched</a>
+    <a class="link" href="#flown">Already Flown?</a>
+    <a class="link" href="#fleet">Fleet</a>
+    <span class="spacer"></span>
+    <a class="btn" href="#request">🎵 Request a Song</a>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div class="kicker">Lyrical Freestyle FPV · Cabot, Arkansas</div>
+    <h1>One song. <em>One take.</em><br>Takeoff to landing.</h1>
+    <p class="lede">I'm GaiusFPV. I pick a song, choreograph the flight in my head, and fly the whole thing in a single take — flips, dives and rolls landing on the beats and the lyric cues. No re-timing in the edit to fake the sync. The skill is in the sticks.</p>
+    <div class="cta-row">
+      <a class="btn" href="#request">Request a song</a>
+      <a class="btn blue" href="#watch">Watch the latest flights</a>
+      <a class="btn ghost" href="https://www.youtube.com/@GaiusFPV" target="_blank" rel="noopener">Subscribe on YouTube</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>248+</b><span>videos on YouTube</span></div>
+      <div class="stat"><b>225</b><span>song flights catalogued</span></div>
+      <div class="stat"><b>1</b><span>take per song — every song flown once</span></div>
+      <div class="stat"><b>Cabot, AR</b><span>home field</span></div>
+    </div>
+  </div>
+
+  <section id="watch">
+    <span class="tag">Live feed</span>
+    <h2>Latest uploads</h2>
+    <p class="sub">This player always pulls my newest YouTube uploads, straight from the channel — so it's current even between site updates.</p>
+    <div class="player">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=UUoRtX16UjIFiYMpEcItMwIA" title="GaiusFPV latest uploads" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section>
+    <span class="tag">Featured</span>
+    <h2>The most-watched flight</h2>
+    <p class="sub">“Bock auf Bass” on the Avata 360 — the channel's #1 FPV video.</p>
+    <div class="player">
+      <iframe src="https://www.youtube.com/embed/lRsU6lNUKd8" title="Bock auf Bass — Avata 360 Lyrical Freestyle" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section id="latest">
+    <h2>Recent flights</h2>
+    <p class="sub">Freshest lyrical freestyle runs from the channel. Tap any card to watch the full song on YouTube.</p>
+    <div class="grid" id="latestGrid"></div>
+  </section>
+
+  <section id="popular">
+    <h2>Most watched FPV</h2>
+    <p class="sub">The runs people keep coming back to.</p>
+    <div class="grid" id="popularGrid"></div>
+  </section>
+
+  <section id="request">
+    <span class="tag">Song requests — open</span>
+    <h2>Request a song. I'll fly it.</h2>
+    <p class="sub">Every flight is one full song, one take. If there's a song you want to see me fly, send it here. Good requests get added to the public request queue on Spotify, and if I fly yours, you get the shoutout you leave in the form.</p>
+    <div class="split">
+      <div class="panel">
+        <h3>How it works</h3>
+        <div class="steps">
+          <div class="step"><b>1. You request it</b><br>Song title + artist. A Spotify link helps, and your name / @handle gets you a shoutout.</div>
+          <div class="step"><b>2. I check it</b><br>One rule: I fly every song once. If I've already posted a flight to it, it's skipped — check the list below before you ask.</div>
+          <div class="step"><b>3. It joins the queue</b><br>Accepted songs land on the <a href="https://open.spotify.com/playlist/7KVkj6L62lwrg3XQ7u8oYh" target="_blank" rel="noopener">GaiusFPV Request Playlist</a> on Spotify.</div>
+          <div class="step"><b>4. I fly it</b><br>Full song, one take, posted to YouTube, TikTok and Facebook as GaiusFPV.</div>
+        </div>
+        <p class="note" style="margin-top:16px">No account or email needed to submit. Requests are checked regularly and added to the playlist in batches.</p>
+        <div class="cta-row">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfz43DSHyLtJ8p3hiDVNyTt7rc6uGgKBK_z6OKXPeOY5DWqPw/viewform" target="_blank" rel="noopener">Open the form in a new tab →</a>
+        </div>
+        <h3 style="margin-top:22px">The queue, live on Spotify</h3>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7KVkj6L62lwrg3XQ7u8oYh?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="GaiusFPV Request Playlist on Spotify"></iframe>
+      </div>
+      <div>
+        <iframe class="formframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfz43DSHyLtJ8p3hiDVNyTt7rc6uGgKBK_z6OKXPeOY5DWqPw/viewform?embedded=true" title="GaiusFPV Song Request Form" loading="lazy">Loading the request form…</iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="flown">
+    <h2>Already flown? Check first</h2>
+    <p class="sub">Search the catalogue of songs I've already posted flights to. If it's here, it's done — I don't repeat songs. If it's not here, it's fair game for a request.</p>
+    <input type="search" id="flownSearch" placeholder="Search a song or artist — try “Brand New”, “Intergalactic”, “Pillow Fight”…">
+    <div class="results" id="flownResults"></div>
+    <p class="note" id="flownCount"></p>
+  </section>
+
+  <section id="fleet">
+    <h2>The fleet</h2>
+    <p class="sub">What I fly, out of Cabot, Arkansas.</p>
+    <div class="fleet">
+      <div><b>DJI Avata 2</b><span class="meta">The lyrical freestyle workhorse</span></div>
+      <div><b>DJI Avata 360</b><span class="meta">360 lyrical freestyle — the edit is part of the instrument</span></div>
+      <div><b>DJI Neo</b><span class="meta">Lightweight / indoor-outdoor</span></div>
+      <div><b>DJI Neo 2</b><span class="meta">Newest of the Neo line</span></div>
+      <div><b>Axisflying Manta 30</b><span class="meta">Cinewhoop — first flights flown to Nirvana</span></div>
+      <div><b>Meteor 65</b><span class="meta">Tiny whoop that refuses to die</span></div>
+    </div>
+    <div class="panel" style="margin-top:18px">
+      <h3>About the flying</h3>
+      <p><strong>Lyrical freestyle</strong> means the tricks are timed to the music — rolls, flips and dives landing on beats, drops and lyric cues, for the full length of the song, in one take. For piloted footage, editing may <em>select</em> honest moments; it never re-times a flight to manufacture sync it didn't have.</p>
+      <p>Looking for calm aerial cinematography instead — landscapes, reveals, orbits, real-estate style work? That's my other channel, <a href="https://www.youtube.com/@AtaraxiaAerials" target="_blank" rel="noopener">Ataraxia Aerials</a>. GaiusFPV is the aerobatics side; Ataraxia is the scenic side.</p>
+      <p>Want to fly along? Try <a href="https://hirammcknoxt.github.io/drone-hero/" target="_blank" rel="noopener">Drone Hero</a> — a browser FPV game built from my own flying spots.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Follow along</h2>
+    <div class="socials">
+      <a href="https://www.youtube.com/@GaiusFPV" target="_blank" rel="noopener">▶ YouTube — @GaiusFPV</a>
+      <a href="https://www.tiktok.com/@gaiusfpv" target="_blank" rel="noopener">TikTok — @gaiusfpv</a>
+      <a href="https://www.instagram.com/gaiusfpv/" target="_blank" rel="noopener">Instagram — @gaiusfpv</a>
+      <a href="https://www.facebook.com/profile.php?id=61587040490496" target="_blank" rel="noopener">Facebook — GAIUS FPV</a>
+      <a href="https://open.spotify.com/playlist/7KVkj6L62lwrg3XQ7u8oYh" target="_blank" rel="noopener">Spotify — Request Playlist</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:var(--text)">GaiusFPV</strong> — Lyrical freestyle FPV from Cabot, Arkansas. One song. One take. Takeoff to landing.</p>
+    <p class="note">Video lists on this page were built from the channel catalogue on Nov 7, 2026; view counts were true then and keep climbing. The “Latest uploads” player above is live from YouTube. Song requests go to the GaiusFPV Request Playlist, minus anything already flown.</p>
+  </div>
+</footer>
+
+<script>
+function card(v){
+  return `<a class="card" href="${v.url}" target="_blank" rel="noopener">
+    <img src="${v.thumb}" alt="" loading="lazy">
+    <div class="body"><h3>${v.title.replace(/</g,'&lt;')}</h3>
+    <div class="meta">${v.date} · ${Number(v.views).toLocaleString()} views${v.duration ? ' · '+v.duration : ''}</div></div></a>`;
+}
+fetch('data.json').then(r=>r.json()).then(d=>{
+  document.getElementById('latestGrid').innerHTML = d.latest.map(card).join('');
+  document.getElementById('popularGrid').innerHTML = d.popular.map(card).join('');
+  const all=d.flown||[];
+  const box=document.getElementById('flownResults');
+  const count=document.getElementById('flownCount');
+  function render(list, label){
+    box.innerHTML = list.slice(0,40).map(t=>`<div class="result">${t.replace(/</g,'&lt;')}</div>`).join('') || '<div class="result">No match — that song hasn\'t been flown yet. Request it above!</div>';
+    count.textContent = label;
+  }
+  render(all.slice(0,12), all.length + ' flown flights catalogued. Showing a few — search to check yours.');
+  document.getElementById('flownSearch').addEventListener('input', e=>{
+    const q=e.target.value.trim().toLowerCase();
+    if(!q){ render(all.slice(0,12), all.length + ' flown flights catalogued.'); return; }
+    const hits=all.filter(t=>t.toLowerCase().includes(q));
+    render(hits, hits.length ? hits.length + ' match(es) — already flown, so a request for it would be skipped.' : 'No match — not flown yet.');
+  });
+}).catch(()=>{});
+</script>
+</body>
+</html>
