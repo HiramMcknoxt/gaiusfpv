@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>GaiusFPV — Lyrical Freestyle FPV | One Song. One Take.</title>
 <meta name="description" content="GaiusFPV flies full songs in one take, takeoff to landing, over Cabot, Arkansas. Request a song, watch the latest flights, and check what's already been flown.">
 <meta property="og:title" content="GaiusFPV — One Song. One Take.">
@@ -43,6 +44,12 @@ h2{font-size:1.9rem;margin:0 0 8px}
 .sub{color:var(--muted);margin:0 0 20px;max-width:760px}
 .player{aspect-ratio:16/9;background:#000;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
 .player iframe{width:100%;height:100%;border:0;display:block}
+.facade{position:relative;width:100%;height:100%;cursor:pointer;background:#000}
+.facade img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92}
+.facade .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:74px;height:52px;background:#f03;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 8px 28px rgba(0,0,0,.55)}
+.facade .vtitle{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-weight:700;font-size:1rem}
+.facade:hover .playbtn{background:#ff2233}
+.watchlink{margin-top:10px;font-size:.92rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--text);display:block}
 .card:hover{border-color:var(--accent2)}
@@ -105,12 +112,17 @@ footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);m
   </div>
 
   <section id="watch">
-    <span class="tag">Live feed</span>
-    <h2>Latest uploads</h2>
-    <p class="sub">This player always pulls my newest YouTube uploads, straight from the channel — so it's current even between site updates.</p>
+    <span class="tag">Newest flight</span>
+    <h2>Latest upload</h2>
+    <p class="sub">The newest flight on the channel — tap to play it right here. The full, always-current uploads feed is one tap away on YouTube.</p>
     <div class="player">
-      <iframe src="https://www.youtube.com/embed/videoseries?list=UUoRtX16UjIFiYMpEcItMwIA" title="GaiusFPV latest uploads" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <div class="facade" data-embed="https://www.youtube.com/embed/We6pf713c0w?autoplay=1&rel=0" role="button" aria-label="Play the latest GaiusFPV upload">
+        <img src="https://i.ytimg.com/vi/We6pf713c0w/hqdefault.jpg" alt="Latest GaiusFPV upload thumbnail">
+        <div class="playbtn">▶</div>
+        <div class="vtitle">"IOU One Galaxy" by @TheAtaris and "Cute Without the E" by @takingbacksunday — Nov 10, 2026</div>
+      </div>
     </div>
+    <p class="watchlink">Player not loading in your browser? <a href="https://www.youtube.com/watch?v=We6pf713c0w" target="_blank" rel="noopener">Watch it on YouTube →</a> · <a href="https://www.youtube.com/playlist?list=UUoRtX16UjIFiYMpEcItMwIA" target="_blank" rel="noopener">All latest uploads →</a></p>
   </section>
 
   <section>
@@ -118,8 +130,13 @@ footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);m
     <h2>The most-watched flight</h2>
     <p class="sub">“Bock auf Bass” on the Avata 360 — the channel's #1 FPV video.</p>
     <div class="player">
-      <iframe src="https://www.youtube.com/embed/lRsU6lNUKd8" title="Bock auf Bass — Avata 360 Lyrical Freestyle" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <div class="facade" data-embed="https://www.youtube.com/embed/lRsU6lNUKd8?autoplay=1&rel=0" role="button" aria-label="Play Bock auf Bass">
+        <img src="https://i.ytimg.com/vi/lRsU6lNUKd8/hqdefault.jpg" alt="Bock auf Bass — Avata 360 Lyrical Freestyle thumbnail">
+        <div class="playbtn">▶</div>
+        <div class="vtitle">"Bock auf Bass" by @Haenselel || Avata 360 Lyrical Freestyle</div>
+      </div>
     </div>
+    <p class="watchlink">Player not loading in your browser? <a href="https://www.youtube.com/watch?v=lRsU6lNUKd8" target="_blank" rel="noopener">Watch it on YouTube →</a></p>
   </section>
 
   <section id="latest">
@@ -202,17 +219,29 @@ footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);m
 <footer>
   <div class="wrap">
     <p><strong style="color:var(--text)">GaiusFPV</strong> — Lyrical freestyle FPV from Cabot, Arkansas. One song. One take. Takeoff to landing.</p>
-    <p class="note">Video lists on this page were built from the channel catalogue on Nov 7, 2026; view counts were true then and keep climbing. The “Latest uploads” player above is live from YouTube. Song requests go to the GaiusFPV Request Playlist, minus anything already flown.</p>
+    <p class="note">Video lists on this page were built from the channel catalogue (Nov 7, 2026, with the newest uploads added Nov 10); view counts were true at pull time and keep climbing. Song requests go to the GaiusFPV Request Playlist, minus anything already flown.</p>
   </div>
 </footer>
 
 <script>
 function card(v){
+  const views = (v.views === null || v.views === undefined) ? '' : ` · ${Number(v.views).toLocaleString()} views`;
   return `<a class="card" href="${v.url}" target="_blank" rel="noopener">
     <img src="${v.thumb}" alt="" loading="lazy">
     <div class="body"><h3>${v.title.replace(/</g,'&lt;')}</h3>
-    <div class="meta">${v.date} · ${Number(v.views).toLocaleString()} views${v.duration ? ' · '+v.duration : ''}</div></div></a>`;
+    <div class="meta">${v.date}${views}${v.duration ? ' · '+v.duration : ''}</div></div></a>`;
 }
+document.querySelectorAll('.facade').forEach(f=>{
+  f.addEventListener('click', ()=>{
+    const iframe=document.createElement('iframe');
+    iframe.src=f.dataset.embed;
+    iframe.title='GaiusFPV video player';
+    iframe.allow='accelerometer; autoplay; encrypted-media; picture-in-picture';
+    iframe.allowFullscreen=true;
+    iframe.referrerPolicy='strict-origin-when-cross-origin';
+    f.replaceWith(iframe);
+  });
+});
 fetch('data.json').then(r=>r.json()).then(d=>{
   document.getElementById('latestGrid').innerHTML = d.latest.map(card).join('');
   document.getElementById('popularGrid').innerHTML = d.popular.map(card).join('');
