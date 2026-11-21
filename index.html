@@ -67,6 +67,9 @@ h2{font-size:1.9rem;margin:0 0 8px}
 input[type=search]{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:#0d1220;color:var(--text);font-size:1rem}
 .results{max-height:320px;overflow:auto;margin-top:12px;display:grid;gap:8px}
 .result{background:var(--panel2);border-radius:10px;padding:10px 12px;font-size:.95rem}
+a.result{display:block;color:inherit;text-decoration:none}
+a.result:hover{outline:1px solid var(--accent)}
+.result .watch{color:var(--accent);font-size:.82rem;font-weight:600;white-space:nowrap}
 .formframe{width:100%;height:860px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
 .fleet{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
 .fleet div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
@@ -198,7 +201,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);m
 
   <section id="flown">
     <h2>Already flown? Check first</h2>
-    <p class="sub">Search the catalogue of songs I've already posted flights to. If it's here, it's done — I don't repeat songs. If it's not here, it's fair game for a request.</p>
+    <p class="sub">Search the catalogue of songs I've already posted flights to. If it's here, it's done — I don't repeat songs. If it's not here, it's fair game for a request. Tap any song to watch its flight.</p>
     <input type="search" id="flownSearch" placeholder="Search a song or artist — try “Brand New”, “Intergalactic”, “Pillow Fight”…">
     <div class="results" id="flownResults"></div>
     <p class="note" id="flownCount"></p>
@@ -267,15 +270,21 @@ fetch('data.json').then(r=>r.json()).then(d=>{
   const all=d.flown||[];
   const box=document.getElementById('flownResults');
   const count=document.getElementById('flownCount');
+  function rowHTML(e){
+    const t=(typeof e==='string'?e:e.t).replace(/</g,'&lt;');
+    if(e && e.v) return `<a class="result" href="https://www.youtube.com/watch?v=${e.v}" target="_blank" rel="noopener">${t} <span class="watch">▶ Watch</span></a>`;
+    if(e && e.q) return `<a class="result" href="https://www.youtube.com/@GaiusFPV/search?query=${encodeURIComponent(e.q)}" target="_blank" rel="noopener">${t} <span class="watch">▶ Find the video</span></a>`;
+    return `<div class="result">${t}</div>`;
+  }
   function render(list, label){
-    box.innerHTML = list.slice(0,40).map(t=>`<div class="result">${t.replace(/</g,'&lt;')}</div>`).join('') || '<div class="result">No match — that song hasn\'t been flown yet. Request it above!</div>';
+    box.innerHTML = list.slice(0,40).map(rowHTML).join('') || '<div class="result">No match — that song hasn\'t been flown yet. Request it above!</div>';
     count.textContent = label;
   }
   render(all.slice(0,12), all.length + ' flown flights catalogued. Showing a few — search to check yours.');
   document.getElementById('flownSearch').addEventListener('input', e=>{
     const q=e.target.value.trim().toLowerCase();
     if(!q){ render(all.slice(0,12), all.length + ' flown flights catalogued.'); return; }
-    const hits=all.filter(t=>t.toLowerCase().includes(q));
+    const hits=all.filter(e=>(typeof e==='string'?e:e.t).toLowerCase().includes(q));
     render(hits, hits.length ? hits.length + ' match(es) — already flown, so a request for it would be skipped.' : 'No match — not flown yet.');
   });
 }).catch(()=>{});
